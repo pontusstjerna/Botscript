@@ -2,11 +2,13 @@ import * as React from 'react';
 import { Switch, Route } from 'react-router';
 import App from './containers/App';
 import HomePage from './containers/HomePage';
+import GameHome from './containers/game/GameHome';
 
 export default () => (
   <App>
     <Switch>
-      <Route path="/" component={HomePage} />
+      <Route exact path="/" component={HomePage} />
+      <Route path="/game" component={GameHome} />
     </Switch>
   </App>
 );
