@@ -18,7 +18,4 @@ Program your own robot and upload to fight other robots!
 
 
 # Current TODOs
-* Setup boiler plate for Electron
 * Setup boiler plate for game lib
-* Setup boiler plate for React inside Electron
-* Add gitignore
