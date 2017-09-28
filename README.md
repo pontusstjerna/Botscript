@@ -17,5 +17,5 @@ Program your own robot and upload to fight other robots!
 * Other?
 
 
-# Current TODOs
-* Setup boiler plate for game lib
+# Trello board
+https://trello.com/b/SMeljQJY
