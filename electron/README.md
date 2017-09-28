@@ -1,4 +1,5 @@
 # Electron boilerplate (at least for now)
+Please download and install NPM first! 
 
 ## How to run
 Run these two commands __simultaneously__ in different console tabs.
