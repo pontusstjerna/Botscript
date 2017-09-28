@@ -7,7 +7,8 @@ export default class Home extends React.Component {
     return (
       <div>
         <div className={styles.container} data-tid="container">
-          <h3>I Like Juiiiiiiice!</h3>
+          <h1>Botscript</h1>
+          <p>I promise not to create any html tables :3</p>
         </div>
       </div>
     );
