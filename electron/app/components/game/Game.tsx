@@ -1,15 +1,16 @@
 import * as React from 'react';
+import { Loop, Stage } from 'react-game-kit';
 
 // let styles = require('./Home.scss');
 
 export default class Game extends React.Component {
   render() {
     return (
-      <div>
-        <div data-tid="container">
-          <h1>THIS IS GAME</h1>
-        </div>
-      </div>
+        <Loop>
+            <Stage>
+                // Game specific components go here
+            </Stage>
+        </Loop>
     );
   }
 }
