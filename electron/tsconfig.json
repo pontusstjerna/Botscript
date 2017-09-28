@@ -14,10 +14,11 @@
 
     "alwaysStrict": true,
     "strictNullChecks": true,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noUnusedLocals": true,
+    "allowSyntheticDefaultImports": true,
     
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
