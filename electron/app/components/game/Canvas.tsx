@@ -22,8 +22,8 @@ interface Props {
       scaleFactor: 1,
       width: null,
       height: null,
-      canvasWidth: null,
-      canvasHeight: null,
+      canvasWidth: 200,
+      canvasHeight: 200,
       styleWidth: null,
       styleMaxHeight: null,
     };
@@ -31,24 +31,38 @@ interface Props {
     private _canvas: HTMLCanvasElement;
     private _context: CanvasRenderingContext2D;
 
+    private _testSprite: HTMLImageElement;
+
     componentDidMount() {
         this._canvas = (ReactDOM.findDOMNode(this) as HTMLCanvasElement);
         this._context = this._canvas.getContext('2d');
 
         // Subscribe to game loop and render each loop
         subscribe((state) => {
+            console.log('Renderrrr');
             // render(this._context, state, this.state.scaleFactor); This should be call to external render function to separate logic
             this._render(this._context, state, this.state.scaleFactor);
         });
+
+
+        // REMOVE THIS
+        this._testSprite = new Image();
+        this._testSprite.src = 'assets/concept_images/green_body_1.png';
     }
 
     // TODO: Remove this, just for testing. Or at least move to another file
     _render(context: CanvasRenderingContext2D, state: any, scale: number) {
         // TODO
-        console.log('Rendering! Current tick is: ' + state.tick);
+        //console.log('Rendering! Current tick is: ' + state.tick);
+        console.log('Render!');
+        // THIS IS JUST FOR TESTING
+        context.fillStyle = '#ff3030';
+
+        context.drawImage(this._testSprite, 50, 50);
     }
 
     render() {
+        console.log('Canvas rendering');
         return (
             <canvas
                 width={this.state.canvasWidth}
