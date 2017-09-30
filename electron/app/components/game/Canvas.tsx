@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import { subscribe } from '../../game_logic/MainLoop';
+import { subscribe } from '../../game_logic/mainLoop';
 
 interface Props {
     onClick: (scaledX: number, scaledY: number) => void;
@@ -22,14 +22,16 @@ interface Props {
       scaleFactor: 1,
       width: null,
       height: null,
-      canvasWidth: null,
-      canvasHeight: null,
+      canvasWidth: 1000,
+      canvasHeight: 1000,
       styleWidth: null,
       styleMaxHeight: null,
     };
   
     private _canvas: HTMLCanvasElement;
     private _context: CanvasRenderingContext2D;
+
+    private _testSprite: HTMLImageElement;
 
     componentDidMount() {
         this._canvas = (ReactDOM.findDOMNode(this) as HTMLCanvasElement);
@@ -40,12 +42,37 @@ interface Props {
             // render(this._context, state, this.state.scaleFactor); This should be call to external render function to separate logic
             this._render(this._context, state, this.state.scaleFactor);
         });
+
+        // REMOVE THIS
+        this._testSprite = new Image();
+        this._testSprite.src = 'assets/game/sprites/robots/green_body_1.png';
     }
+
+    private testX = 10;
+    private testY = 400;
+    private testDir = 1;
 
     // TODO: Remove this, just for testing. Or at least move to another file
     _render(context: CanvasRenderingContext2D, state: any, scale: number) {
         // TODO
-        console.log('Rendering! Current tick is: ' + state.tick);
+
+        // THIS IS JUST FOR TESTING
+        context.clearRect(0,0,1000,1000);
+        context.save();
+        
+        context.fillStyle = '#303030';
+        context.fillRect(0,0,1000,1000);
+
+        //context.rotate(90);
+        //x,y,w,h
+        context.drawImage(this._testSprite, this.testX, this.testY, 50, 50);
+
+        // THIS LOGIC IS JUST FOR TESTING, SHOULD BE REMOVED OR MOVED TO ANOTHER FILE
+        if(this.testX > 800 || this.testX < 10) {
+            this.testDir = -this.testDir;
+        }
+
+        this.testX += this.testDir;
     }
 
     render() {
