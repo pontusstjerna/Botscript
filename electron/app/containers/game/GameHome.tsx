@@ -20,14 +20,15 @@ export class GameHome extends React.Component<RouteComponentProps<any>, void> {
     });
   
     // Start the main game loop
-    console.log('Starting game loop');
+    console.log('Initializing game loop');
     runLoop.start();
   }
 
   render() {
-    console.log('GameHome rendering');
     return (
-      <Canvas onClick={(x,y) => console.log('Click on canvas with coords (' + x + ',' + y + ')!')}/>
+      <div>
+        <Canvas onClick={(x,y) => console.log('Click on canvas with coords (' + x + ',' + y + ')!')}/>
+      </div>
     );
   }
 }
