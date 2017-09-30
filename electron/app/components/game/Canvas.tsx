@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import { subscribe } from '../../game_logic/MainLoop';
+import { subscribe } from '../../game_logic/mainLoop';
 
 interface Props {
     onClick: (scaledX: number, scaledY: number) => void;
@@ -39,7 +39,6 @@ interface Props {
 
         // Subscribe to game loop and render each loop
         subscribe((state) => {
-            console.log('Renderrrr');
             // render(this._context, state, this.state.scaleFactor); This should be call to external render function to separate logic
             this._render(this._context, state, this.state.scaleFactor);
         });
@@ -50,19 +49,28 @@ interface Props {
         this._testSprite.src = 'assets/concept_images/green_body_1.png';
     }
 
+    private test = 10;
+
     // TODO: Remove this, just for testing. Or at least move to another file
     _render(context: CanvasRenderingContext2D, state: any, scale: number) {
         // TODO
-        //console.log('Rendering! Current tick is: ' + state.tick);
-        console.log('Render!');
-        // THIS IS JUST FOR TESTING
-        context.fillStyle = '#ff3030';
 
-        context.drawImage(this._testSprite, 50, 50);
+        // THIS IS JUST FOR TESTING
+        context.clearRect(0,0,200,200);
+        context.save();
+        
+        context.fillStyle = '#30' + this.test + '' + this.test;
+        context.fillRect(0,0,200,200);
+
+        this.test++;
+
+        //let img = new Image();
+        //img.src = 'assets/concept_images/green_body_1.png';
+
+        //context.drawImage(img, 50, 50);
     }
 
     render() {
-        console.log('Canvas rendering');
         return (
             <canvas
                 width={this.state.canvasWidth}

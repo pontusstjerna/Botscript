@@ -6,11 +6,12 @@ import { runLoopCallBack } from '../../game_logic/mainLoop';
 
 export class GameHome extends React.Component<RouteComponentProps<any>, void> {
 
-  componentDidMount() {
+  componentWillMount() {
     this.init();
   }
 
   init() {
+    //const store = createStore
     const runLoop = new RunLoop();
 
     runLoop.onTick((dt) => {
@@ -19,6 +20,7 @@ export class GameHome extends React.Component<RouteComponentProps<any>, void> {
     });
   
     // Start the main game loop
+    console.log('Starting game loop');
     runLoop.start();
   }
 
