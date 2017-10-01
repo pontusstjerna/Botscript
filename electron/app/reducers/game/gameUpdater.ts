@@ -1,5 +1,6 @@
 import { 
     GAME_UPDATE,
+    GAME_TICK,
 } from '../../actions/game/types';
 
 const INITIAL_STATE = {
@@ -23,7 +24,9 @@ const INITIAL_STATE = {
 const updateReducer = (state = INITIAL_STATE, action: any) => {
     switch(action.type) {
         case GAME_UPDATE:
-            return {...state, robots: action.payload};
+            return {...state, robots: action.payload}; // Hmm?
+        case GAME_TICK:
+            return {...state, tick: state.tick + action.payload}
         default:
             return state;
     }

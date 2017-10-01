@@ -6,11 +6,7 @@ import * as types from './types';
 export default function updateGame(dTime: number, state: GameState, dispatch: Dispatch<GameState>) {
     //TODO
     dispatch({
-        type: types.GAME_UPDATE,
-        payload: [
-            {
-                ...state.robots[0].pos
-            }
-        ]
-    })
+        type: types.GAME_TICK,
+        payload: dTime,
+    });
 }
