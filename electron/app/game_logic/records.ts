@@ -1,7 +1,21 @@
+
+/** Represents the current state of the whole game */
 export class GameState {
-    //TODO
-    //I really don't know what this does just yet,
-    //but I suppose this will be updated every step in the loop
-    robots: any;
+    robots: Array<Robot>;
     tick: number;
+}
+
+export class Robot {
+    pos: {
+        x: number,
+        y: number,
+    };
+
+    energy: number;
+
+    model: {
+        body: HTMLImageElement
+        cannon: HTMLImageElement
+        radar: HTMLImageElement
+    }
 }

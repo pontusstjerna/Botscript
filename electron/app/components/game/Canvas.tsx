@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 import { subscribe } from '../../game_logic/mainLoop';
+import { render } from '../../game_logic/render';
 
 interface Props {
     onClick: (scaledX: number, scaledY: number) => void;
@@ -39,8 +40,8 @@ interface Props {
 
         // Subscribe to game loop and render each loop
         subscribe((state) => {
-            // render(this._context, state, this.state.scaleFactor); This should be call to external render function to separate logic
-            this._render(this._context, state, this.state.scaleFactor);
+            render(this._context, state, this.state.scaleFactor);
+            //this._render(this._context, state, this.state.scaleFactor);
         });
 
         // REMOVE THIS
