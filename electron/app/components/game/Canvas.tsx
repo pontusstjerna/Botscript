@@ -49,33 +49,6 @@ interface Props {
         this._testSprite.src = 'assets/game/sprites/robots/green_body_1.png';
     }
 
-    private testX = 10;
-    private testY = 400;
-    private testDir = 1;
-
-    // TODO: Remove this, just for testing. Or at least move to another file
-    _render(context: CanvasRenderingContext2D, state: any, scale: number) {
-        // TODO
-
-        // THIS IS JUST FOR TESTING
-        context.clearRect(0,0,1000,1000);
-        context.save();
-        
-        context.fillStyle = '#303030';
-        context.fillRect(0,0,1000,1000);
-
-        //context.rotate(90);
-        //x,y,w,h
-        context.drawImage(this._testSprite, this.testX, this.testY, 50, 50);
-
-        // THIS LOGIC IS JUST FOR TESTING, SHOULD BE REMOVED OR MOVED TO ANOTHER FILE
-        if(this.testX > 800 || this.testX < 10) {
-            this.testDir = -this.testDir;
-        }
-
-        this.testX += this.testDir;
-    }
-
     render() {
         return (
             <canvas
