@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import { subscribe } from '../../game_logic/mainLoop';
+import { subscribe } from '../../actions/game/mainLoop';
 import render from '../../game_logic/render';
 
 interface Props {

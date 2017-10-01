@@ -14,7 +14,13 @@ function renderRobots(context: CanvasRenderingContext2D, state: GameState, scale
     let robots = state.robots;
     for(var i = 0; i < state.robots.length; i++) {
         let robot = robots[i];
-        context.drawImage(robot.model.body, robot.pos.x, robot.pos.y, Math.round(robot.model.body.width * scaleFactor), Math.round(robot.model.body.height));
+        context.drawImage(
+            robot.model.body, 
+            robot.pos.x, 
+            robot.pos.y, 
+            Math.round(robot.model.body.width * scaleFactor), 
+            Math.round(robot.model.body.height)
+        );
     }
 }
 

@@ -1,5 +1,7 @@
 import { Store } from 'redux';
-import { GameState } from './records';
+import { GameState } from '../../game_logic/records';
+import updateGame from './updater';
+import * as types from './types';
 
 export type Subscriber = (state: GameState) => void
 
@@ -18,19 +20,19 @@ export function runLoopCallBack(deltaTime: number, store: Store<GameState>) {
     //I really don't know what this does just yet
     // but I suppose game logic goes here
 
-    //dt = dt / 1000;  // ms -> s
-    //const dispatch = store.dispatch.bind(store);
+    deltaTime = deltaTime / 1000;  // ms -> s
+    const dispatch = store.dispatch.bind(store);
 
-    //const prevState = store.getState();
+    const prevState = store.getState();
 
-    //inputHandler(dt, prevState, dispatch);
+    updateGame(deltaTime, prevState, dispatch);
+    
+     dispatch({
+       type: types.GAME_TICK,
+       deltaTime,
+     });
 
-    // dispatch({
-    //   type: 'tick',
-    //   //dt,
-    // });
+    const newState = store.getState();
 
-    //const newState = store.getState();
-
-    subscriber(null);
+    subscriber(newState);
 }
