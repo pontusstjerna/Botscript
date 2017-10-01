@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 import { subscribe } from '../../game_logic/mainLoop';
-import { render } from '../../game_logic/render';
+import render from '../../game_logic/render';
 
 interface Props {
     onClick: (scaledX: number, scaledY: number) => void;
