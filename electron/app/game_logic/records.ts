@@ -6,11 +6,13 @@ export class GameState {
 }
 
 export class Robot {
+    name: String;
+
     pos: {
         x: number,
         y: number,
     };
-
+ 
     energy: number;
 
     model: {

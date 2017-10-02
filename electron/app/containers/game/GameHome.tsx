@@ -4,6 +4,7 @@ import { RouteComponentProps } from 'react-router';
 import Canvas from '../../components/game/Canvas';
 import RunLoop from '../../game_logic/RunLoop';
 import { runLoopCallBack } from '../../actions/game/mainLoop';
+import { initRobot } from '../../actions/game/robotActions';
 import reducer from '../../reducers/game';
 
 export class GameHome extends React.Component<RouteComponentProps<any>, void> {
@@ -13,11 +14,13 @@ export class GameHome extends React.Component<RouteComponentProps<any>, void> {
   }
 
   init() {
+    let store = createStore(reducer);
+
+    initRobot('Robot1', 50, 50, 'green', store.dispatch);
     //const store = createStore
     const runLoop = new RunLoop();
 
     runLoop.onTick((dt) => {
-      let store = createStore(reducer);
       runLoopCallBack(dt, store);
     });
   

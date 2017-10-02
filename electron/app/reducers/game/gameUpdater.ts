@@ -1,23 +1,11 @@
 import { 
     GAME_UPDATE,
     GAME_TICK,
+    ROBOT_INIT,
 } from '../../actions/game/types';
 
 const INITIAL_STATE = {
-    robots: [
-        {
-            pos: {
-                x: 10,
-                y: 50,
-            },
-            energy: 100,
-            model: {
-                body: new Image().src = 'assets/game/sprites/robots/green_body_1.png',
-                cannon: new Image().src = 'assets/game/sprites/robots/green_body_1.png',
-                radar: new Image().src = 'assets/game/sprites/robots/green_body_1.png',
-            }
-        },
-    ],
+    robots: new Array(),
     tick: 0
 }
 
@@ -27,6 +15,8 @@ const updateReducer = (state = INITIAL_STATE, action: any) => {
             return {...state, robots: action.payload}; // Hmm?
         case GAME_TICK:
             return {...state, tick: state.tick + action.payload}
+        case ROBOT_INIT:
+            return {...state, robots: state.robots.concat([action.payload])}
         default:
             return state;
     }

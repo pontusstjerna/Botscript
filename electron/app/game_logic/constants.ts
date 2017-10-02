@@ -10,3 +10,4 @@ export const ROBOT = {
         HEIGHT: 20,
     }
 }
+export const INITIAL_ENERGY = 100;
