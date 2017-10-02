@@ -1,8 +1,11 @@
 import * as React from 'react';
+import { createStore } from 'redux';
 import { RouteComponentProps } from 'react-router';
 import Canvas from '../../components/game/Canvas';
 import RunLoop from '../../game_logic/RunLoop';
-import { runLoopCallBack } from '../../game_logic/mainLoop';
+import { runLoopCallBack } from '../../actions/game/mainLoop';
+import { initRobot } from '../../actions/game/robotActions';
+import reducer from '../../reducers/game';
 
 export class GameHome extends React.Component<RouteComponentProps<any>, void> {
 
@@ -11,12 +14,16 @@ export class GameHome extends React.Component<RouteComponentProps<any>, void> {
   }
 
   init() {
-    //const store = createStore
-    const runLoop = new RunLoop();
+    let store = createStore(reducer);
 
+    // Only for testing
+    initRobot('Robot1', 150, 550, 'green', store.dispatch);
+    initRobot('Robot2', 400, 400, 'cyan', store.dispatch);
+
+
+    const runLoop = new RunLoop();
     runLoop.onTick((dt) => {
-      // TODO: Find out what store argument is
-      runLoopCallBack(dt, null);
+      runLoopCallBack(dt, store);
     });
   
     // Start the main game loop
