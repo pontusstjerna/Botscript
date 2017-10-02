@@ -4,6 +4,7 @@ import {
     OFFSETS,
 } from './constants';
 
+import Robot from './Robot';
 import { GameState } from './records';
 
 function renderBackground(context: CanvasRenderingContext2D) {
@@ -13,7 +14,10 @@ function renderBackground(context: CanvasRenderingContext2D) {
 
 // The reason for the state's type of any here is because Redux is not yet fully supporting TypeScript
 function renderRobots(context: CanvasRenderingContext2D, state: any, scaleFactor: number) {
-    let robots = state.game.robots;
+    let robots = <Array<Robot>>state.game.robots;
+    
+    // TODO: Rotations and a lot of more stuff
+    
     for(var i = 0; i < robots.length; i++) {
         let robot = robots[i];
         

@@ -32,8 +32,6 @@ interface Props {
     private _canvas: HTMLCanvasElement;
     private _context: CanvasRenderingContext2D;
 
-    private _testSprite: HTMLImageElement;
-
     componentDidMount() {
         this._canvas = (ReactDOM.findDOMNode(this) as HTMLCanvasElement);
         this._context = this._canvas.getContext('2d');
@@ -41,12 +39,7 @@ interface Props {
         // Subscribe to game loop and render each loop
         subscribe((state) => {
             render(this._context, state, this.state.scaleFactor);
-            //this._render(this._context, state, this.state.scaleFactor);
         });
-
-        // REMOVE THIS
-        this._testSprite = new Image();
-        this._testSprite.src = 'assets/game/sprites/robots/green_body_1.png';
     }
 
     render() {

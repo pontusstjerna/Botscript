@@ -21,3 +21,6 @@ export const OFFSETS = {
         y: 44,
     },
 }
+export const BASE_PATHS = {
+    ROBOTS: 'assets/game/sprites/robots/'
+}

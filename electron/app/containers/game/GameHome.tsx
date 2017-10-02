@@ -16,10 +16,12 @@ export class GameHome extends React.Component<RouteComponentProps<any>, void> {
   init() {
     let store = createStore(reducer);
 
-    initRobot('Robot1', 50, 50, 'green', store.dispatch);
-    //const store = createStore
-    const runLoop = new RunLoop();
+    // Only for testing
+    initRobot('Robot1', 150, 550, 'green', store.dispatch);
+    initRobot('Robot2', 400, 400, 'cyan', store.dispatch);
 
+
+    const runLoop = new RunLoop();
     runLoop.onTick((dt) => {
       runLoopCallBack(dt, store);
     });
