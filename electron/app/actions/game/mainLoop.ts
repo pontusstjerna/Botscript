@@ -1,6 +1,6 @@
 import { Store } from 'redux';
 import { GameState } from '../../game_logic/records';
-import updateGame from './updater';
+import updateGame from './updateActions';
 import * as types from './types';
 
 export type Subscriber = (state: GameState) => void

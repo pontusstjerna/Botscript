@@ -1,8 +1,10 @@
 import * as React from 'react';
+import { createStore } from 'redux';
 import { RouteComponentProps } from 'react-router';
 import Canvas from '../../components/game/Canvas';
 import RunLoop from '../../game_logic/RunLoop';
-import { runLoopCallBack } from '../../game_logic/mainLoop';
+import { runLoopCallBack } from '../../actions/game/mainLoop';
+import reducer from '../../reducers/game';
 
 export class GameHome extends React.Component<RouteComponentProps<any>, void> {
 
@@ -15,8 +17,8 @@ export class GameHome extends React.Component<RouteComponentProps<any>, void> {
     const runLoop = new RunLoop();
 
     runLoop.onTick((dt) => {
-      // TODO: Find out what store argument is
-      runLoopCallBack(dt, null);
+      let store = createStore(reducer);
+      runLoopCallBack(dt, store);
     });
   
     // Start the main game loop
