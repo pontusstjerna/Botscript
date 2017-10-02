@@ -29,10 +29,9 @@ export function runLoopCallBack(deltaTime: number, store: Store<GameState>) {
     
      dispatch({
        type: types.GAME_TICK,
-       deltaTime,
+       payload: deltaTime,
      });
 
     const newState = store.getState();
-
     subscriber(newState);
 }

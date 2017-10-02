@@ -5,6 +5,6 @@ import updateReducer from './gameUpdater';
 import robotReducer from './robotReducer';
 
 export default combineReducers<GameState>({
-    update: updateReducer,
+    game: updateReducer,
     robot: robotReducer,
 });

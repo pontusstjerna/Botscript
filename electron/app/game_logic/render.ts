@@ -10,8 +10,10 @@ function renderBackground(context: CanvasRenderingContext2D) {
     // TODO
 }
 
-function renderRobots(context: CanvasRenderingContext2D, state: GameState, scaleFactor: number) {
-    let robots = state.robots;
+// The reason for the state's type of any here is because Redux is not yet fully supporting TypeScript
+function renderRobots(context: CanvasRenderingContext2D, state: any, scaleFactor: number) {
+    console.log(JSON.stringify(state));
+    let robots = state.game.robots;
     for(var i = 0; i < robots.length; i++) {
         let robot = robots[i];
         context.drawImage(
