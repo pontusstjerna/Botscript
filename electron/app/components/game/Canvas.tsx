@@ -20,7 +20,7 @@ interface Props {
 
   class Canvas extends React.Component<Props, CanvasState> {
     state: CanvasState = {
-      scaleFactor: 1,
+      scaleFactor: 0.4,
       width: null,
       height: null,
       canvasWidth: 1000,
