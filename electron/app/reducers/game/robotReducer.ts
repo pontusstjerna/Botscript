@@ -9,9 +9,9 @@ const INITIAL_STATE = {
     },
     energy: 100,
     model: {
-        body: new Image().src = '../../assets/game/sprites/robots/body_green_1.png',
-        cannon: new Image().src = '../../assets/game/sprites/robots/body_green_1.png',
-        radar: new Image().src = '../../assets/game/sprites/robots/body_green_1.png',
+        //body: new Image().src = '../../assets/game/sprites/robots/body_green_1.png',
+        //cannon: new Image().src = '../../assets/game/sprites/robots/body_green_1.png',
+        //radar: new Image().src = '../../assets/game/sprites/robots/body_green_1.png',
     }
 }
 

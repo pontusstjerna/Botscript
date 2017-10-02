@@ -12,7 +12,7 @@ function renderBackground(context: CanvasRenderingContext2D) {
 
 function renderRobots(context: CanvasRenderingContext2D, state: GameState, scaleFactor: number) {
     let robots = state.robots;
-    for(var i = 0; i < state.robots.length; i++) {
+    for(var i = 0; i < robots.length; i++) {
         let robot = robots[i];
         context.drawImage(
             robot.model.body, 
