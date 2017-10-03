@@ -3,10 +3,18 @@ import { BASE_PATHS } from './constants';
 export default class Robot {
     name: String;
     
+    // ORIGIN is in center of robot
     pos: {
         x: number,
         y: number,
     };
+
+    /** 0 - 2PI radians */
+    rotation: {
+        body: number,
+        cannon: number,
+        radar: number,
+    }
     
     energy: number;
 
@@ -37,6 +45,11 @@ export default class Robot {
         }
 
         this.model = model;
+        this.rotation = {
+            body: Math.PI/2,
+            cannon: Math.PI/2,
+            radar: Math.PI/2,
+        }
     }
 
     // FUNCTION QUEUE SHOULD BE HERE
