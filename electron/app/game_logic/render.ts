@@ -34,8 +34,8 @@ function renderRobots(context: CanvasRenderingContext2D, state: any, scaleFactor
         renderSprite(
             context,
             robot.model.cannon,
-            robot.pos.x,
-            robot.pos.y,// - 30 * scaleFactor, // Vertical offset of radar
+            robot.pos.x + 30 * scaleFactor * Math.sin(robot.rotation.cannon),
+            robot.pos.y - 30 * scaleFactor * Math.cos(robot.rotation.cannon), // Vertical offset of radar
             robot.rotation.cannon,
             scaleFactor,
             0

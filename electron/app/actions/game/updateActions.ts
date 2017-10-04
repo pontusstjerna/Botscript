@@ -13,6 +13,17 @@ export default function updateGame(dTime: number, state: any, dispatch: Dispatch
         
         if(robot.pos.y > 50)
             robot.ahead(); // This would be a call from the user
+
+        // ONLY FOR TESTING ROTATION
+        if(i === 0) {
+            robot.turn(0.0017);
+            robot.turnCannon(-0.03);
+            robot.turnRadar(0.05);
+        } else {
+            robot.turn(-0.017);
+            robot.turnCannon(0.03);
+            robot.turnRadar(-0.005);
+        }
     }
 
     dispatch({

@@ -47,8 +47,8 @@ export default class Robot {
         this.model = model;
         this.rotation = {
             body: Math.PI/2,
-            cannon: Math.PI/2,
-            radar: Math.PI/2,
+            cannon: Math.PI/4,
+            radar: 0,
         }
     }
 
@@ -58,6 +58,19 @@ export default class Robot {
     /** USER FUNCTIONS */
     ahead() { //TODO
         this.pos.y -= 1;
+    }
+    
+    turn(radians: number) {
+        //TODO: Add limit per tick
+        this.rotation.body = (this.rotation.body + radians) % (Math.PI * 2);
+    }
+
+    turnCannon(radians: number) {
+        this.rotation.cannon = (this.rotation.cannon + radians) % (Math.PI * 2);
+    }
+
+    turnRadar(radians: number) {
+        this.rotation.radar = (this.rotation.radar + radians) % (Math.PI * 2);
     }
 
     /** ADD MORE USER FUNCTIONS HERE */
