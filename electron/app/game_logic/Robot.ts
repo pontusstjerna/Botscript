@@ -56,8 +56,11 @@ export default class Robot {
     //private callQueue = []; //Queue of operations to operate for every tick for this robot
 
     /** USER FUNCTIONS */
-    ahead() { //TODO
-        this.pos.y -= 1;
+
+    //Speed / tick
+    ahead(speed: number) {
+        this.pos.x += speed * Math.sin(this.rotation.body);
+        this.pos.y -= speed * Math.cos(this.rotation.body);
     }
     
     turn(radians: number) {

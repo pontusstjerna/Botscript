@@ -15,8 +15,6 @@ function renderBackground(context: CanvasRenderingContext2D) {
 function renderRobots(context: CanvasRenderingContext2D, state: any, scaleFactor: number) {
     let robots = <Array<Robot>>state.game.robots;
     
-    // TODO: Rotations and a lot of more stuff
-    
     for(var i = 0; i < robots.length; i++) {
         let robot = robots[i];
         
