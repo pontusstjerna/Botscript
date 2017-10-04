@@ -2,8 +2,8 @@
  * This should probably be available for the player scripts.
  */
 
-export const WIDTH = 800;
-export const HEIGHT = 800;
+export const WIDTH = 1200;
+export const HEIGHT = 600;
 export const ROBOT = {
     DIMENSIONS: {
         WIDTH: 115,
