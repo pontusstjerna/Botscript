@@ -6,8 +6,7 @@ import * as types from './types';
 
 export default function updateGame(dTime: number, state: any, dispatch: Dispatch<GameState>) {
     //TODO
-
-    let robots = state.game.robots;
+    let robots = state.game.robots;    
     for(var i = 0; i < robots.length; i++) {
         let robot = <Robot>robots[i];
         
@@ -49,10 +48,12 @@ function checkSensors(currentRobot: Robot, gameState: GameState) {
 }
 
 function checkRadar(currentRobot: Robot, gameState: GameState) {
-    // TODO
-    
     // Fire events
     for(let i = 0; i < currentRobot.radarSubscriptions.length; i++) {
-        currentRobot.radarSubscriptions[i](); //?
+        // Logic here
+
+        if (true /* Radar beam of robot intersect any other robot */) {
+            currentRobot.radarSubscriptions[i]();
+        }
     }
 }

@@ -53,6 +53,8 @@ export default class Robot {
             cannon: Math.PI/4,
             radar: 0,
         }
+
+        this.radarSubscriptions = new Array();
     }
 
     /** USER FUNCTIONS */
