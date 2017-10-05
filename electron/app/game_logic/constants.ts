@@ -10,7 +10,14 @@ export const ROBOT = {
         HEIGHT: 118,
     }
 }
-export const RADAR_SPAN = 0.17; // 1 degree
+export const LIMITS = {
+    MAX_TURN_PER_TICK: {
+        body: 8 * 0.17, // 8 degrees per tick
+        cannon: 10 * 0.17,
+        radar: 20 * 0.17,
+    },
+    MAX_SPEED_PER_TICK: 3, // 3 pixels per tick
+}
 export const INITIAL_ENERGY = 100;
 export const OFFSETS = {
     CANNON: {

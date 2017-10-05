@@ -27,11 +27,11 @@ export default function updateGame(dTime: number, state: any, dispatch: Dispatch
 
         // ONLY FOR TESTING ROTATION
         if(i === 0) {
-            robot.turn(-0.05);
+            robot.turnBody(-0.05);
             robot.turnCannon(-0.03);
             robot.turnRadar(0.05);
         } else {
-            robot.turn(-0.017);
+            robot.turnBody(-0.017);
             robot.turnCannon(0.03);
             robot.turnRadar(-0.005);
         }

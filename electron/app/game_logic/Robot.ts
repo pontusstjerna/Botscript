@@ -1,4 +1,7 @@
-import { BASE_PATHS } from './constants';
+import { 
+    BASE_PATHS,
+    LIMITS,
+ } from './constants';
 
 export default class Robot {
     name: String;
@@ -67,20 +70,23 @@ export default class Robot {
     /** MOVEMENT */
     //Speed / tick
     ahead(speed: number) {
+        speed = Math.min(LIMITS.MAX_SPEED_PER_TICK, speed);
         this.pos.x += speed * Math.sin(this.rotation.body);
         this.pos.y -= speed * Math.cos(this.rotation.body);
     }
     
-    turn(radians: number) {
-        //TODO: Add limit per tick
+    turnBody(radians: number) {
+        radians = Math.min(LIMITS.MAX_TURN_PER_TICK.body, radians);
         this.rotation.body = (this.rotation.body + radians) % (Math.PI * 2);
     }
 
     turnCannon(radians: number) {
+        radians = Math.min(LIMITS.MAX_TURN_PER_TICK.cannon, radians);
         this.rotation.cannon = (this.rotation.cannon + radians) % (Math.PI * 2);
     }
 
     turnRadar(radians: number) {
+        radians = Math.min(LIMITS.MAX_TURN_PER_TICK.radar, radians);
         this.rotation.radar = (this.rotation.radar + radians) % (Math.PI * 2);
     }
 
