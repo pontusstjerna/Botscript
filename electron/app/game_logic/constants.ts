@@ -2,7 +2,7 @@
  * This should probably be available for the player scripts.
  */
 
-export const WIDTH = 1200;
+export const WIDTH = 960;
 export const HEIGHT = 600;
 export const ROBOT = {
     DIMENSIONS: {
@@ -10,6 +10,7 @@ export const ROBOT = {
         HEIGHT: 118,
     }
 }
+export const RADAR_SPAN = 0.17; // 1 degree
 export const INITIAL_ENERGY = 100;
 export const OFFSETS = {
     CANNON: {

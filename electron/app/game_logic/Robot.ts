@@ -24,6 +24,9 @@ export default class Robot {
         radar: HTMLImageElement
     }
 
+    /** EVENT SUBSCRIPTION */
+    radarSubscriptions: Array<Function>;
+
     constructor(name: String, pos: {x: number, y: number}, color: String) {
         this.name = name;
         this.pos = pos;
@@ -50,13 +53,18 @@ export default class Robot {
             cannon: Math.PI/4,
             radar: 0,
         }
-    }
 
-    // FUNCTION QUEUE SHOULD BE HERE
-    //private callQueue = []; //Queue of operations to operate for every tick for this robot
+        this.radarSubscriptions = new Array();
+    }
 
     /** USER FUNCTIONS */
 
+    /** EVENTS */
+    subscribeRadar(callBack: Function) {
+        this.radarSubscriptions.push(callBack);
+    }
+
+    /** MOVEMENT */
     //Speed / tick
     ahead(speed: number) {
         this.pos.x += speed * Math.sin(this.rotation.body);
