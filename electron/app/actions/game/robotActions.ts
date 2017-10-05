@@ -7,9 +7,6 @@ export function initRobot (name: String, x: number, y: number, color: String, di
 
     let robot = new Robot(name, {x: x, y: y}, color);
 
-    //For testing
-    robot.subscribeRadar(() => console.log('Radar trigger from robot ' + robot.name));
-
     console.log('Initializing robot ' + name + ' at (' + x + ',' + y + ')');
     dispatch({
         type: types.ROBOT_INIT,

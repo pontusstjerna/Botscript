@@ -2,8 +2,12 @@ import {
     BASE_PATHS,
     LIMITS,
  } from './constants';
+ 
+import RobotInterface from './RobotInterface';
 
-export default class Robot {
+export default class Robot implements RobotInterface{
+    script: any; // The player's script. More TODO here
+
     name: String;
     
     // ORIGIN is in center of robot
@@ -34,6 +38,8 @@ export default class Robot {
         this.name = name;
         this.pos = pos;
         this.loadImages(color);
+
+        this.script = require('../test_scripts/' + name + '.ts');
     }
 
     private loadImages(color: String) {
