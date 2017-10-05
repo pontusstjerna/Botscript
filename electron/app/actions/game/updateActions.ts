@@ -12,28 +12,8 @@ export default function updateGame(dTime: number, state: any, dispatch: Dispatch
         
         checkSensors(robot, state.game);
 
-
-
-
-
-
-
-
-
-
-
-        // TEST
-        robot.ahead(3); // This would be a call from the user
-
-        // ONLY FOR TESTING ROTATION
-        if(i === 0) {
-            robot.turnBody(-0.05);
-            robot.turnCannon(-0.03);
-            robot.turnRadar(0.05);
-        } else {
-            robot.turnBody(-0.017);
-            robot.turnCannon(0.03);
-            robot.turnRadar(-0.005);
+        if(!!robot.script.update) {
+            robot.script.update(robot);
         }
     }
 

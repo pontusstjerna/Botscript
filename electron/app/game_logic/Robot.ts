@@ -4,9 +4,10 @@ import {
  } from './constants';
  
 import RobotInterface from './RobotInterface';
+import UserScript from './UserScript';
 
 export default class Robot implements RobotInterface{
-    script: any; // The player's script. More TODO here
+    script: UserScript; // The player's script. More TODO here
 
     name: String;
     
@@ -39,7 +40,7 @@ export default class Robot implements RobotInterface{
         this.pos = pos;
         this.loadImages(color);
 
-        this.script = require('../test_scripts/' + name + '.ts');
+        
     }
 
     private loadImages(color: String) {

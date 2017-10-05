@@ -8,3 +8,5 @@ export default class TestScript implements UserScript {
         robot.turnBody(0.17*5);
     }
 }
+
+//module.exports = TestScript;
