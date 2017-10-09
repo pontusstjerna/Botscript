@@ -39,8 +39,6 @@ export default class Robot implements RobotInterface{
         this.name = name;
         this.pos = pos;
         this.loadImages(color);
-
-        
     }
 
     private loadImages(color: String) {
