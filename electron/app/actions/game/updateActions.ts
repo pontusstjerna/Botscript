@@ -6,34 +6,14 @@ import * as types from './types';
 
 export default function updateGame(dTime: number, state: any, dispatch: Dispatch<GameState>) {
     //TODO
-    let robots = state.game.robots;    
-    for(var i = 0; i < robots.length; i++) {
-        let robot = <Robot>robots[i];
+    let players = state.game.players;    
+    for(var i = 0; i < players.length; i++) {
+        let player = players[i];
         
-        checkSensors(robot, state.game);
+        checkSensors(player.robot, state.game);
 
-
-
-
-
-
-
-
-
-
-
-        // TEST
-        robot.ahead(3); // This would be a call from the user
-
-        // ONLY FOR TESTING ROTATION
-        if(i === 0) {
-            robot.turn(-0.05);
-            robot.turnCannon(-0.03);
-            robot.turnRadar(0.05);
-        } else {
-            robot.turn(-0.017);
-            robot.turnCannon(0.03);
-            robot.turnRadar(-0.005);
+        if(!!player.script.update) {
+            player.script.update(player.robot);
         }
     }
 

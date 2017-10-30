@@ -164,6 +164,7 @@
     "webpack-merge": "^2.0.0"
   },
   "dependencies": {
+    "@types/systemjs": "^0.20.5",
     "electron-debug": "^1.1.0",
     "font-awesome": "^4.7.0",
     "history": "^4.6.1",
@@ -175,7 +176,8 @@
     "react-router-redux": "^5.0.0-alpha.6",
     "redux": "^3.6.0",
     "redux-thunk": "^2.1.0",
-    "source-map-support": "^0.4.6"
+    "source-map-support": "^0.4.6",
+    "systemjs": "^0.20.19"
   },
   "devEngines": {
     "node": ">=6.x",
