@@ -5,8 +5,6 @@ import Robot from '../../game_logic/Robot';
 
 export function initRobot (name: String, x: number, y: number, color: String, dispatch: Dispatch<GameState>) {
 
-    console.log('Initializing robot ' + name + ' at (' + x + ',' + y + ')');
-
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -19,8 +17,11 @@ export function initRobot (name: String, x: number, y: number, color: String, di
                 type: types.ROBOT_INIT,
                 payload: player
             });
+
+            console.log('Initialized robot ' + name + ' at (' + x + ',' + y + ')');
         }
     };
+    // TODO: Should not be hard coded
     xhttp.open("GET", 'test_scripts/' + name + '.js', true); // Shouldn't this be .ts?
     xhttp.send();
 }

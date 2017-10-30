@@ -18,7 +18,7 @@ export class GameHome extends React.Component<RouteComponentProps<any>, void> {
 
     // Only for testing
     initRobot('TestScript2', 150, 550, 'green', store.dispatch);
-
+    initRobot('Pontus', 50, 10, 'cyan', store.dispatch);
 
     const runLoop = new RunLoop();
     runLoop.onTick((dt) => {
