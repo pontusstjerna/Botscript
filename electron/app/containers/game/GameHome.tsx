@@ -17,7 +17,7 @@ export class GameHome extends React.Component<RouteComponentProps<any>, void> {
     let store = createStore(reducer);
 
     // Only for testing
-    initRobot('TestScript', 150, 550, 'green', store.dispatch);
+    initRobot('TestScript2', 150, 550, 'green', store.dispatch);
 
 
     const runLoop = new RunLoop();

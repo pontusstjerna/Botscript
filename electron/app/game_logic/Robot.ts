@@ -4,11 +4,8 @@ import {
  } from './constants';
  
 import RobotInterface from './RobotInterface';
-import UserScript from './UserScript';
 
 export default class Robot implements RobotInterface{
-    script: UserScript; // The player's script. More TODO here
-
     name: String;
     
     // ORIGIN is in center of robot
@@ -39,7 +36,6 @@ export default class Robot implements RobotInterface{
         this.name = name;
         this.pos = pos;
         this.loadImages(color);
-        this.loadScript(name);
     }
 
     private loadImages(color: String) {
@@ -64,19 +60,6 @@ export default class Robot implements RobotInterface{
         }
 
         this.radarSubscriptions = new Array();
-    }
-
-    private loadScript(name: String) {
-        // import('../test_scripts/' + name).then((userScript: UserScript) => {
-            
-        // }).catch((error) => {
-        //     console.log('No script named ' + name + ' found!');
-        // });
-
-        //let userScript: typeof <K extends keyof UserScript>
-
-//        let userScript: typeof UserScript = require('../test_scripts/' + name);
-
     }
 
     /** USER FUNCTIONS */

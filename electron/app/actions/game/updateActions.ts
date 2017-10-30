@@ -6,14 +6,14 @@ import * as types from './types';
 
 export default function updateGame(dTime: number, state: any, dispatch: Dispatch<GameState>) {
     //TODO
-    let robots = state.game.robots;    
-    for(var i = 0; i < robots.length; i++) {
-        let robot = <Robot>robots[i];
+    let players = state.game.players;    
+    for(var i = 0; i < players.length; i++) {
+        let player = players[i];
         
-        checkSensors(robot, state.game);
+        checkSensors(player.robot, state.game);
 
-        if(!!robot.script.update) {
-            robot.script.update(robot);
+        if(!!player.script.update) {
+            player.script.update(player.robot);
         }
     }
 
